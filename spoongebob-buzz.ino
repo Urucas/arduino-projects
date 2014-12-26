@@ -29,8 +29,8 @@ void loop(){
   while(true){}
 }
 
-int frequency(char note) 
-{
+int frequency(char note){
+  
   int i;
   const int numNotes = 8;
   
