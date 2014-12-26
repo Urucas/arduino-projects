@@ -32,7 +32,7 @@ void loop(){
 int frequency(char note) 
 {
   int i;
-  const int numNotes = 8;  // number of notes we're storing
+  const int numNotes = 8;
   
   char names[] = { 'c', 'd', 'e', 'f', 'g', 'a', 'b', 'C' };
   int frequencies[] = {262, 294, 330, 349, 392, 440, 494, 523};
