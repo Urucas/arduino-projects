@@ -1,0 +1,44 @@
+int datapin = 2; 
+int clockpin = 3;
+int latchpin = 4;
+
+void setup(){
+  pinMode(datapin, OUTPUT);
+  pinMode(clockpin, OUTPUT);  
+  pinMode(latchpin, OUTPUT);
+}
+
+void loop(){
+  wave();
+}
+
+void shiftWrite(int desiredPin, boolean desiredState){
+
+  bitWrite(data,desiredPin,desiredState);
+  
+  shiftOut(datapin, clockpin, MSBFIRST, data);
+  
+  digitalWrite(latchpin, HIGH);
+  digitalWrite(latchpin, LOW);
+}
+
+void lightsOut() {
+  int i;
+  for(i=0; i<=7; i++) {
+    shiftWrite(i, LOW);
+  }
+}
+
+void wave() {
+  int i;
+  int delayTime = 150;
+  
+  for(i=0; i<=3;i++){
+    lightsOut();
+    
+    shiftWrite(i, HIGH);
+    shiftWrite(i+4, HIGH);
+    
+    delay(100);
+  }
+}
